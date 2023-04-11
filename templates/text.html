@@ -1,0 +1,61 @@
+<html>
+<head>
+  <title>Text Saver</title>
+  <!-- 引入bootstrap样式 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- 添加自定义样式 -->
+  <style>
+    body {
+      background-color: #f0f0f0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      border: 1px solid #ccc;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    .btn {
+      margin-right: 10px;
+    }
+    /* 添加一个分割线 */
+    .divider {
+      border-top: 2px solid #ccc;
+      margin: 20px 0;
+    }
+    /* 添加一些修饰 */
+    .label {
+      font-weight: bold;
+      color: #333;
+    }
+    .value {
+      font-family: monospace;
+      background-color: #eee;
+      padding: 5px;
+      border-radius: 5px;
+      /* 添加一个边框和阴影 */
+      border: 1px solid #999;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Text Saver</h1>
+    <!-- 添加一个分割线 -->
+    <div class="divider"></div>
+    <!-- 添加一些修饰 -->
+    <p class="label">Your text is:</p>
+    <p class="value">{{text}}</p>
+    <p class="label">Your url is:</p>
+    <p class="value">{{url}}</p>
+    <!-- 显示一个按钮，让用户可以进入编辑页面 -->
+    <a href="/edit/{{url}}" class="btn btn-info">Edit</a>
+    <a href="/raw/{{url}}" class="btn btn-info">raw</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!-- edit.html -->
+<html>
+<head>
+  <title>Text Saver</title>
+  <!-- 引入bootstrap样式 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Text Saver</h1>
+    <p>Your text is:</p>
+    <p>{{text}}</p>
+    <p>Your url is:</p>
+    <p>{{url}}</p>
+    <p>You can edit your text here:</p>
+    <!-- 使用bootstrap的表单样式 -->
+    <form action="/update/{{url}}" method="POST" class="form-group">
+      <textarea name="new_text" rows="10" cols="50" class="form-control">{{text}}</textarea>
+      <br>
+      <input type="submit" value="Update" class="btn btn-primary">
+    </form>
+    <p>Or you can delete your text here:</p>
+    <!-- 使用bootstrap的按钮样式 -->
+    <a href="/delete/{{url}}" class="btn btn-danger">Delete</a>
+  </div>
+</body>
+</html>
