@@ -4,7 +4,7 @@
 
 程序本身由Python + Sqlite数据库 + 几个简单的Html页面构成。
  
-# docker 快速运行
+# 通过 Docker 快速运行
 
 ```bash
 docker run -d -p 5000:5000 -v ./data/:/app/data/ --restart=always --name simpletexttransfer nyar233/simpletexttransfer
