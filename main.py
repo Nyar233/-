@@ -1,6 +1,6 @@
-# coding=utf-8
+# -*- coding: UTF-8 -*-
 # 导入所需的模块
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect
 import uuid
 import sqlite3
 
@@ -36,8 +36,7 @@ def submit():
   # 获取web页面的域名
   domain = request.host_url
   # 返回一个提示信息，告诉用户他的url是什么，并加上域名
-  return f'Your text is saved. Your url is {domain}{url}'
-
+  return redirect(f'{domain}{url}')
 
 # 定义一个路由，用于处理url访问
 @app.route('/<url>')
@@ -45,7 +44,7 @@ def get_text(url):
   # 根据url查询数据库，获取对应的文字
   c.execute('SELECT text FROM texts WHERE url = ?', (url, ))
   text = c.fetchone()
-  # 如果找到了文字，就返回纯文本，并显示一个按钮，让用户可以进入编辑页面
+  # 如果找到了文字，就返回文本，并显示一个按钮，让用户可以进入编辑页面
   if text:
     return render_template('text.html', text=text[0], url=url)
   # 如果没有找到文字，就返回一个错误信息
